@@ -31,9 +31,6 @@ def main():
 	w.tracer(0,0)
 	walls=[]
 	x=wall((100,-200),(100,200))
-	#for i in walls:
-	#	if (i.collision_check(player)==True):
-	#		w.background("red")
 	w.tracer(1,10)
 	player=turtle.Turtle()
 	while (True):
