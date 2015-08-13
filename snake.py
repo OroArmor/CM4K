@@ -32,7 +32,8 @@ def main():
 	w.tracer(1,10)
 	player=turtle.Turtle()
 	while (True):
-		player.fd(1)
+		player.fd(10)
+		player.lt(5)
 	w.exitonclick()
 
 if __name__=='__main__':
