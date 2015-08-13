@@ -28,7 +28,10 @@ class wall:
 def main():
 	w=turtle.Screen()
 	w.tracer(0,0)
-	wall((100,-200),(100,200))
+	walls=[]
+	walls.append(wall((100,-200),(100,200)))
+	for x in walls:
+		walls[x].collision_check(player)
 	w.tracer(1,10)
 	player=turtle.Turtle()
 	while (True):
