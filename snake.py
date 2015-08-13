@@ -36,7 +36,7 @@ def main():
 	while (True):
 		player.fd(1)
 		if (x.collision_check(player)):
-			w.bgcolor("red")
+			player.stop()
 	w.exitonclick()
 
 if __name__=='__main__':
