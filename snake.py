@@ -19,9 +19,10 @@ class wall:
 		self._turtlex=turtle.xcor()
 		self._turtley=turtle.ycor()
 		self._dist=(((self._x1-self._x2)**2+(self._y1-self._y2)**2)**0.5)
-		self._dist2=(((self._x1-self._turtlex)**2+(self._y1-self.turtley)**2)**0.5)
+		self._dist2=(((self._x1-self._turtlex)**2+(self._y1-self._turtley)**2)**0.5)
 		self._dist3=(((self._turtlex-self._x2)**2+(self._turtley-self._y2)**2)**0.5)
 		if(self._dist2+self._dist3==self._dist):
+			
 			return True
 		
 
@@ -29,14 +30,16 @@ def main():
 	w=turtle.Screen()
 	w.tracer(0,0)
 	walls=[]
-	walls.append(wall((100,-200),(100,200)))
-	for x in walls:
-		walls[x].collision_check(player)
+	x=wall((100,-200),(100,200))
+	#for i in walls:
+	#	if (i.collision_check(player)==True):
+	#		w.background("red")
 	w.tracer(1,10)
 	player=turtle.Turtle()
 	while (True):
-		player.fd(10)
-		player.lt(5)
+		player.fd(1)
+		if (x.collision_check(player)):
+			w.bgcolor("red")
 	w.exitonclick()
 
 if __name__=='__main__':
