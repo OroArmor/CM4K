@@ -26,32 +26,33 @@ class wall:
 			return True
 		
 walls = []
-def makewall(pos1,pos2):
-	
+def makewall(pos1,pos2,screen):
+	screen.tracer(0,0)
 	walls.append(wall(pos1,pos2))
+	screen.tracer(1,10)
 wallpos1=(0,0)
 def main():
 	w=turtle.Screen()
 	w.tracer(0,0)
-	makewall((100,-200),(100,200))
+	makewall((100,-200),(100,200),w)
 	player=turtle.Turtle()
 	def LT ():
 		global wallpos1
 		player.lt(90)
 		playerpos=player.pos()
 		player.fd(1)
-		makewall(wallpos1,playerpos)
+		makewall(wallpos1,playerpos,w)
 		wallpos1=player.pos()
 	def RT ():
 		global wallpos1
 		player.rt(90)
 		playerpos=player.pos()
 		player.fd(1)
-		makewall(wallpos1,playerpos)
+		makewall(wallpos1,playerpos,w)
 		wallpos1=player.pos()
-	makewall((-300,-200),(-300,200))
-	makewall((100,-200),(-300,-200))
-	makewall((-300,200),(100,200))
+	makewall((-300,-200),(-300,200),w)
+	makewall((100,-200),(-300,-200),w)
+	makewall((-300,200),(100,200),w)
 	w.tracer(1,10)
 	running = True
 	while (running):
