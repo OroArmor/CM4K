@@ -25,18 +25,44 @@ class wall:
 			
 			return True
 		
-
+walls = []
+def makewall(pos1,pos2):
+	
+	walls.append(wall(pos1,pos2))
+wallpos1=(0,0)
 def main():
 	w=turtle.Screen()
 	w.tracer(0,0)
-	walls=[]
-	x=wall((100,-200),(100,200))
-	w.tracer(1,10)
+	makewall((100,-200),(100,200))
 	player=turtle.Turtle()
-	while (True):
+	def LT ():
+		global wallpos1
+		player.lt(90)
+		playerpos=player.pos()
 		player.fd(1)
-		if (x.collision_check(player)):
-			player.stop()
+		makewall(wallpos1,playerpos)
+		wallpos1=player.pos()
+	def RT ():
+		global wallpos1
+		player.rt(90)
+		playerpos=player.pos()
+		player.fd(1)
+		makewall(wallpos1,playerpos)
+		wallpos1=player.pos()
+	makewall((-300,-200),(-300,200))
+	makewall((100,-200),(-300,-200))
+	makewall((-300,200),(100,200))
+	w.tracer(1,10)
+	running = True
+	while (running):
+		w.onkey(LT,"Left")
+		w.onkey(RT,"Right")
+		w.listen()
+		
+		player.fd(1)
+		for i in walls:
+			if (i.collision_check(player)):
+				running = False
 	w.exitonclick()
 
 if __name__=='__main__':
